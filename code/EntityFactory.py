@@ -1,8 +1,10 @@
-from typing import TYPE_CHECKING
+import random
 
 from code.Background import Background
-from code.Const import WIN_WIDTH
+from code.Const import WIN_WIDTH, WIN_HEIGHT
+from code.Enemy import Enemy
 from code.Entity import Entity
+from code.Player import Player
 
 
 class EntityFactory:
@@ -16,5 +18,11 @@ class EntityFactory:
                     list_bg.append(Background(f'Level1Bg{i}', (WIN_WIDTH, 0)))
                 return list_bg
 
-            case _:
-                return None
+            case 'Player1':
+                return Player('Player1', (10,WIN_HEIGHT/2 -30))
+            case 'Player2':
+                return Player('Player2', (10,WIN_HEIGHT/2 + 30))
+            case 'Enemy1':
+                return Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(40,WIN_HEIGHT - 40)))
+            case 'Enemy2':
+                return Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40)))
