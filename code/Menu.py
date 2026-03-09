@@ -1,5 +1,3 @@
-from enum import nonmember
-
 import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font

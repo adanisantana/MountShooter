@@ -1,3 +1,4 @@
+import sys
 
 import pygame
 from pygame import Surface, Rect
@@ -18,8 +19,8 @@ class Level:
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
 
     def run(self):
-        pygame.mixer_music.load(f'./asset/{self.name}.mp3')
-        pygame.mixer_music.play(-1)
+        #pygame.mixer_music.load(f'./asset/{self.name}.mp3')
+        #pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
@@ -29,7 +30,6 @@ class Level:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
                     sys.exit()
 
 
