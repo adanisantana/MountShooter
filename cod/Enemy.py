@@ -1,6 +1,6 @@
-from code.Const import ENTITY_SPEED, WIN_WIDTH, ENTITY_SHOT_DELAY
-from code.EnemyShot import EnemyShot
-from code.Entity import Entity
+from cod.Const import ENTITY_SPEED, WIN_WIDTH, ENTITY_SHOT_DELAY
+from cod.EnemyShot import EnemyShot
+from cod.Entity import Entity
 
 
 class Enemy(Entity):
@@ -16,4 +16,4 @@ class Enemy(Entity):
         if self.shot_delay == 0:
             self.shot_delay = ENTITY_SHOT_DELAY[self.name]
             return EnemyShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
-
+        return None

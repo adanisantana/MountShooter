@@ -89,6 +89,8 @@ ENTITY_SCORE = {
     'Enemy2Shot': 0
 }
 
+EVENT_TIMEOUT = pygame.USEREVENT + 2
+
 #M
 MENU_OPTION = (
     'NEW GAME 1P',
@@ -100,6 +102,10 @@ MENU_OPTION = (
 
 #S
 SPANW_TIME = 4000
+
+#T
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEL = 20000
 
 #P
 PLAYER_KEY_UP ={
@@ -119,7 +125,7 @@ PLAYER_KEY_RIGHT ={
     'Player2': pygame.K_d
 }
 PLAYER_KEY_SHOOT ={
-    'Player1': pygame.K_RCTRL,
+    'Player1': pygame.K_SPACE,
     'Player2': pygame.K_LCTRL
 }
 #W

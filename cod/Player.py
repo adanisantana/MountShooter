@@ -1,9 +1,9 @@
 import pygame
 
-from code.Const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH, PLAYER_KEY_UP, PLAYER_KEY_DOWN, PLAYER_KEY_LEFT, \
+from cod.Const import ENTITY_SPEED, WIN_HEIGHT, WIN_WIDTH, PLAYER_KEY_UP, PLAYER_KEY_DOWN, PLAYER_KEY_LEFT, \
     PLAYER_KEY_RIGHT, PLAYER_KEY_SHOOT, ENTITY_SHOT_DELAY
-from code.Entity  import Entity
-from code.PlayerShot import PlayerShot
+from cod.Entity  import Entity
+from cod.PlayerShot import PlayerShot
 
 
 class Player(Entity):
@@ -25,11 +25,12 @@ class Player(Entity):
     def shoot(self):
         self.shot_delay -= 1
         if self.shot_delay <= 0:
-            self.shot_delay = ENTITY_SHOT_DELAY[self.name]
             pressed_key = pygame.key.get_pressed()
             if pressed_key[PLAYER_KEY_SHOOT[self.name]]:
+                self.shot_delay = ENTITY_SHOT_DELAY[self.name]  # Reseta o delay só quando atira
                 return PlayerShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
-
+            else:
+                self.shot_delay = 0  # Mantém pronto para atirar assim que apertar a tecla
         return None
 
 

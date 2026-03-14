@@ -1,5 +1,5 @@
-from code.Const import ENTITY_SPEED
-from code.Entity import Entity
+from cod.Const import ENTITY_SPEED, WIN_WIDTH
+from cod.Entity import Entity
 
 
 class PlayerShot(Entity):
@@ -9,4 +9,5 @@ class PlayerShot(Entity):
 
     def move(self):
         self.rect.centerx += ENTITY_SPEED[self.name]
-
+        if self.rect.left > WIN_WIDTH:
+            self.health = 0
