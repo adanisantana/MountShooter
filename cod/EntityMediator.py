@@ -36,8 +36,8 @@ class EntityMediator:
                     ent1.rect.top <= ent2.rect.bottom):
                 ent1.health -= ent2.damage
                 ent2.health -= ent1.damage
-                ent1.last_dmg = ent2.damage
-                ent2.last_dmg = ent1.damage
+                ent1.last_dmg = ent2.name
+                ent2.last_dmg = ent1.name
 
 
     @staticmethod
