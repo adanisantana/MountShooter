@@ -23,7 +23,7 @@ class Score:
         name = ''
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.score_text(48, 'YOU WIN!!', COLOR_ORANGE, SCORE_POS['Title'])
+            self.score_text(48, 'Score', COLOR_ORANGE, SCORE_POS['Title'])
 
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]
@@ -35,10 +35,8 @@ class Score:
                 score = max(player_score[0], player_score[1])
                 text = 'Enter Winner name (4 chars):'
 
-            # Instrução em Branco
-            self.score_text(20, text, COLOR_WHITE, SCORE_POS['EnterName'])
 
-            # O nome que está sendo digitado em Amarelo para brilhar
+            self.score_text(20, text, COLOR_WHITE, SCORE_POS['EnterName'])
             self.score_text(30, name, COLOR_YELLOW, SCORE_POS['Name'])
 
             for event in pygame.event.get():

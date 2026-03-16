@@ -63,8 +63,18 @@ class EntityMediator:
 
     @staticmethod
     def verify_health(entity_list: list[Entity]):
-        for ent in entity_list:
+        for ent in entity_list[:]:  # cópia da lista
+            # PLAYER
+            if isinstance(ent, Player):
+                if ent.health <= 0 and not ent.exploding:
+                    ent.exploding = True
+                    continue
+                if ent.dead:
+                    entity_list.remove(ent)
+                    continue
+            # ENEMY
             if ent.health <= 0:
                 if isinstance(ent, Enemy):
                     EntityMediator.__give_sore(ent, entity_list)
+
                 entity_list.remove(ent)

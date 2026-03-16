@@ -70,14 +70,14 @@ class Level:
 
                         return True
 
-            found_player = False
-            for ent in self.entity_list:
-                if isinstance(ent, Player):
-                    found_player = True
+            found_player_alive = any(
+                isinstance(ent, Player) and not ent.dead
+                for ent in self.entity_list
+            )
 
-            if not found_player:
+            if not found_player_alive:
+                pygame.time.delay(1000)
                 return False
-
 
             self.level_text(14, f'{self.name}- Timeout{self.timeout / 1000 :.1f}s', COLOR_WHITE,(10,5))
             self.level_text(14, f'fps:{clock.get_fps() :.0f}',COLOR_WHITE,(10, WIN_HEIGHT -35))

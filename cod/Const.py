@@ -55,7 +55,7 @@ ENTITY_HEALTH ={
     'Level2Bg2': 999,
     'Level2Bg3': 999,
     'Level2Bg4': 999,
-    'Player1': 300,
+    'Player1': 50,
     'Player1Shot': 1,
     'Player2': 300,
     'Player2Shot': 1,
@@ -133,7 +133,7 @@ MENU_OPTION = (
 
 #T
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 20000
+TIMEOUT_LEVEL = 40000
 
 #P
 PLAYER_KEY_UP ={

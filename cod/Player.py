@@ -10,17 +10,31 @@ class Player(Entity):
     def __init__(self, name:str, position:tuple):
         super().__init__(name, position)
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
+        self.exploding = False
+        self.explosion_frames = []
+        self.explosion_index = 0
+        self.explosion_timer = 0
+        self.explosion_speed = 3
+        self.dead = False
+        self.explosion()
 
     def move(self):
+
+        if self.exploding:
+            self.animate_explosion()
+            return
+
         pressed_key = pygame.key.get_pressed()
-        if pressed_key[PLAYER_KEY_UP [self.name]] and self.rect.top > 0:
+
+        if pressed_key[PLAYER_KEY_UP[self.name]] and self.rect.top > 0:
             self.rect.centery -= ENTITY_SPEED[self.name]
         if pressed_key[PLAYER_KEY_DOWN[self.name]] and self.rect.bottom < WIN_HEIGHT:
             self.rect.centery += ENTITY_SPEED[self.name]
-        if pressed_key[PLAYER_KEY_LEFT[self.name]] and self.rect.bottom > 0:
+        if pressed_key[PLAYER_KEY_LEFT[self.name]] and self.rect.left > 0:
             self.rect.centerx -= ENTITY_SPEED[self.name]
         if pressed_key[PLAYER_KEY_RIGHT[self.name]] and self.rect.right < WIN_WIDTH:
             self.rect.centerx += ENTITY_SPEED[self.name]
+
 
     def shoot(self):
         self.shot_delay -= 1
@@ -33,4 +47,30 @@ class Player(Entity):
                 self.shot_delay = 0
         return None
 
+    def explosion(self):
+        spritesheet = pygame.image.load('./asset/Damage.png').convert_alpha()
 
+        frame_width = spritesheet.get_width() // 10
+        frame_height = spritesheet.get_height()
+
+        for i in range(10):
+            frame = spritesheet.subsurface((i * frame_width, 0, frame_width, frame_height))
+            frame = pygame.transform.scale(frame, (80, 80))
+
+            self.explosion_frames.append(frame)
+
+    def animate_explosion(self):
+        if self.explosion_index == 0:
+            self.rect = self.explosion_frames[0].get_rect(center=self.rect.center)
+            self.surf = self.explosion_frames[0]
+
+        self.explosion_timer += 1
+
+        if self.explosion_timer >= self.explosion_speed:
+            self.explosion_timer = 0
+            self.explosion_index += 1
+
+            if self.explosion_index < len(self.explosion_frames):
+                self.surf = self.explosion_frames[self.explosion_index]
+            else:
+                self.dead = True
