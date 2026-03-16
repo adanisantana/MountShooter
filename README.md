@@ -1,7 +1,7 @@
-# Mountain Shooter
+# Mountain Shooter 2
 ### Sobre
-Mountain Shooter é um jogo de arcade 2D desenvolvido com a biblioteca Pygame. O jogo possui 2 níveis, sendo que cada nível termina após um tempo limite determinado.
+Mountain Shooter 2 uma nova nave e novos cenários no Player 1. 
 
-Modo Cooperativo: Pode ser jogado em dupla (2 jogadores).
+-> Após ganhar ou perder, vai direto para o Score.
 
-Ranking: As pontuações (score) são salvas em um banco de dados SQLite3.
+
