@@ -27,10 +27,10 @@ class Player(Entity):
         if self.shot_delay <= 0:
             pressed_key = pygame.key.get_pressed()
             if pressed_key[PLAYER_KEY_SHOOT[self.name]]:
-                self.shot_delay = ENTITY_SHOT_DELAY[self.name]  # Reseta o delay só quando atira
+                self.shot_delay = ENTITY_SHOT_DELAY[self.name]
                 return PlayerShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
             else:
-                self.shot_delay = 0  # Mantém pronto para atirar assim que apertar a tecla
+                self.shot_delay = 0
         return None
 
 

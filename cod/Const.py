@@ -1,13 +1,22 @@
 import pygame
 
 #C
-COLOR_ORANGE = (255, 128, 0)
+COLOR_ORANGE = (255, 100, 0)
 COLOR_WHITE = (255, 255, 255)
-COLOR_YELLOW = (255, 255, 128)
-COLOR_GREEN = (0, 128, 0)
+COLOR_YELLOW = (255, 255, 0)
+COLOR_GREEN = (50, 255, 50)
 COLOR_CYAN = (0, 128, 128)
+COLOR_BLACK = (0, 0, 0)
+COLOR_PINK = (255, 20, 147)
+COLOR_RED = (255, 50, 50)
+COLOR_ORANGE_BRIGHT = (255, 69, 0)
+COLOR_PINK_2 = (255, 20, 147)
 
 #E
+ENTITY_SIZE = {
+    'Player1': (80, 80),
+    'Player2': (80, 80),
+}
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -155,17 +164,18 @@ WIN_HEIGHT = 324
 SPAWN_TIME = 4000
 
 SCORE_POS = {
-    'Title':(WIN_WIDTH / 2,50),
-    'EnterName': (WIN_WIDTH / 2,80),
-    'Label': (WIN_WIDTH / 2,90),
-    'Name':   (WIN_WIDTH / 2,110),
-    0: (WIN_WIDTH / 2,110),
-    1: (WIN_WIDTH / 2,130),
-    2: (WIN_WIDTH / 2,150),
-    3: (WIN_WIDTH / 2,170),
-    4: (WIN_WIDTH / 2,190),
-    5: (WIN_WIDTH / 2,210),
-    6: (WIN_WIDTH / 2,230),
-    7: (WIN_WIDTH / 2,270),
-    8: (WIN_WIDTH / 2,290)
+    'Title': (WIN_WIDTH / 2 - 150, 50),
+    'EnterName': (100, 150),
+    'Label': (100, 200),
+    'Name': (100, 250),
+    0: (100, 250),
+    1: (100, 280),
+    2: (100, 310),
+    3: (100, 340),
+    4: (100, 370),
+    5: (100, 400),
+    6: (100, 430),
+    7: (100, 460),
+    8: (100, 490),
+    9: (100, 520),
 }

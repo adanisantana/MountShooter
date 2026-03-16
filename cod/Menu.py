@@ -19,7 +19,7 @@ class Menu:
             #Desenhar a imagem
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(text_size= 50,text= 'Mountain',text_color=COLOR_ORANGE,text_center_pos=((WIN_WIDTH/2),70))
-            self.menu_text(text_size=50, text='Shooter',text_color= COLOR_ORANGE,
+            self.menu_text(text_size=50, text='Shooter 2',text_color= COLOR_ORANGE,
                            text_center_pos=((WIN_WIDTH / 2), 120))
 
             for i in range(len(MENU_OPTION)):
@@ -59,8 +59,13 @@ class Menu:
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
+
+        shadow_surf: Surface = text_font.render(text, True, (0, 0, 0)).convert_alpha()
+        shadow_rect: Rect = shadow_surf.get_rect(center=(text_center_pos[0] + 2, text_center_pos[1] + 2))
+        self.window.blit(source=shadow_surf, dest=shadow_rect)
+
+        # --- DESENHAR TEXTO PRINCIPAL ---
         text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
-
 
